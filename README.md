@@ -17,7 +17,7 @@
     - The script will create a log file named `system_health_logs.log` where you can watch the results
 ## TASK 2:
 ### Description
-    - Sum: Write a Python script to check if the nginx service is running and restart it if it is down, logging the results.
+    - Write a Python script to check if the nginx service is running and restart it if it is down, logging the results.
     - Objective: Automate the check and restart of the nginx service if it is not running.
     - Requirements:
         1) Check the status of nginx service.
@@ -87,6 +87,10 @@
 ### Code Source
     `task-05-jenkins-pipline`
 ### Steps Taken
+1) Downloaded a Jenkins Docker
+2) Signed into the GUI at `http://localhost:8080`
+3) written a Jenkins pipeline
+4) Created a new pipeline job inside the GUI
 ### How To Run
 ssh -i ~/.ssh/id_rsa cherryrina@10.100.102.10
 
