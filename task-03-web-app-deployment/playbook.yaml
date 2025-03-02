@@ -1,0 +1,29 @@
+---
+- name: Deploy Simple Web App
+  hosts: localhost
+  become: true  # Run as root
+
+  tasks:
+    # TODO: add task that checks if Nginx is already installed
+    - name: Install Nginx
+      dnf:
+        name: nginx  
+        state: present 
+
+    - name: Copy HTML File to Nginx 
+      copy:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+      notify: Restart Nginx 
+
+    - name: Start and Enable Nginx
+      service:
+        name: nginx     
+        state: started  
+        enabled: true   
+
+  handlers: # triggered tasks
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted # restarts the service

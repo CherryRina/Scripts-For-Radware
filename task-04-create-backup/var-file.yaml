@@ -1,0 +1,4 @@
+# for unknown reasons must provide full path to working directory
+backup_dir: "/home/CherryBomb/Documents/Radware-Playground/task-04-create-backup/backup"
+backup_file: "log_backup_{{ ansible_date_time.date }}.tar.gz" # timestamp for file name
+remote_path: "/home/cherryrina/"
