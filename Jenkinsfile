@@ -2,7 +2,7 @@ pipeline {
     agent any // Runs the pipeline on any available agent
 
     triggers { // start the pipeline automaticall
-        cron('H */4 * * *') // This cron expression means "every day at midnight"
+        cron('H */4 * * *') // This cron expression means "every 4 hours"
     }
 
     stages { // define the sequence of tasks in a pipeline
