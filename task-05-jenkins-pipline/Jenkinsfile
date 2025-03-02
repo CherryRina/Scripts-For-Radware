@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout') { // Clones the Python script repository
             steps {
-                git branch: 'master', url: 'https://github.com/CherryRina/Radware-playground.git.git'
+                git branch: 'master', url: 'https://github.com/CherryRina/Radware-playground.git'
             }
         }
 
