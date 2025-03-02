@@ -9,14 +9,28 @@
         3) Issue a major-level alert if usage exceeds 90%.
         Log entries when metrics exceed defined thresholds.
 ### Code Source
-    task-01-system-health
+    `task-01-system-health`
 ### Steps Taken
-        Created a working program and split it into separate functions."
+    Created a working program and split it into separate functions.
 ### How To Run
-        write here
+    - Run Python script named `1-system_health.py`
+    - The script will create a log file named `system_health_logs.log` where you can watch the results
 ## TASK 2:
 ### Description
-# TASK 3:
+    - Sum: Write a Python script to check if the nginx service is running and restart it if it is down, logging the results.
+    - Objective: Automate the check and restart of the nginx service if it is not running.
+    - Requirements:
+        1) Check the status of nginx service.
+        2) If the service is down, restart it.
+        3) Log the success or failure of the restart operation.
+### Code Source
+        `task-02-service-manager`
+### Steps Taken
+    Created a working program and split it into separate functions.
+### How To Run
+    - Run Python script named `2-service_managment.py`
+    - The script will create a log file named `service_availability_logs.log` where you can watch the results
+## TASK 3:
 ### Description
     - Ansible Playbook for Web Application Deployment
     - Objective:Automate the deployment of a simple web application using Ansible.
@@ -24,36 +38,56 @@
         1) Install Nginx on the remote server.
         2) Configure Nginx to serve an HTML file from a specified directory.
         3) Ensure Nginx service is started and enabled on boot.
-    - STEPS TAKEN:
-        HTML
-            1 - Created web_app.html with the content to be served by Nginx.
-        INVENTORY
-            1 - Created inventory.ini to define the target machines or groups.
-            2 - Verify your inventory with: ansible-inventory -i inventory.ini --list
-            3 - Ping the local group in your inventory to test connectivity: ansible local -m ping -i inventory.ini
-        PLAYBOOK
-            1 - Find the Nginx configuration file to copy the path inside the server block configuration for a static HTML website:
-                nginx -V (look for the --conf-path=/etc/nginx/nginx.conf)
-            2 - Created playbook.yml for the deployment tasks.
-            3 - Run Ansible with the inventory and playbook: ansible-playbook -i inventory.ini playbook.yml
-
-TASK 4:
-    - Write an Ansible Playbook to Perform a System Backup
-    - Objective:Automate system backups using Ansible.
+### Code Source
+    `task-03-web-app-deployment`
+### Steps Taken
+#### HTML
+    1) Created `web_app.html` with the content to be served by Nginx.
+#### INVENTORY
+    1) Created inventory.ini to define the target machines or groups.
+    2) Verified my inventory with: 
+    `ansible-inventory -i inventory.ini --list`
+    3) Pinged the local group in my inventory to test connectivity: 
+    `ansible local -m ping -i inventory.ini`
+#### PLAYBOOK
+    1) Found the Nginx configuration file to copy the path inside the server block configuration for a static HTML website:
+        `nginx -V` (look for the --conf-path=/etc/nginx/nginx.conf)
+    2) Created `playbook.yml` for the deployment tasks.
+    3) Ran Ansible with the inventory and playbook: 
+    `ansible-playbook -i inventory.ini playbook.yml`
+### How To Run
+    - Run bash script named `run-me.sh` from shell
+    - The script executes Ansible and will return Nginx service status and results of web app connectivity
+## TASK 4
+### Description
+    - Automate the backup of critical directories (e.g., /var/log) using an Ansible playbook, including storing the backup remotely.
+    - Objective: Create an Ansible playbook that automates system backups and ensures backups are verified.
     - Requirements:
-        - Archive the /var/log directory into a .tar.gz file.
-        - Store the backup on a remote server or S3 bucket.
-        - Add a timestamp to the backup filename.
-        - Verify the backup by checking:
-        - File existence
-        - File size (to confirm it's not empty)
-    - STEPS TAKEN:
-        1) backup path into tar file
-            tar -czf compress-dir.tar dir1
-        2) put timestamps
-        3) check backup (existance and size)
-        4) send to remote server
-
+        1) Archive the log directory (/var/log) into a .tar.gz file.
+        2) Store the backup on a remote server or S3.
+        3) Timestamp the backup file.
+        4) Verify the backup by checking the file's existence and size.
+### Code Source
+    `task-04-system-log-backup`
+### Steps Taken
+    1) backup path into tar file
+    2) put timestamps
+    3) check backup (existance and size)
+    4) send to remote server
+### How To Run
+    - Run bash script named `run-me.sh` from shell
+    - The script executes both of Ansible playbooks
+## TASK 5
+### Description
+    - Automate the periodic execution of a Python script using Jenkins.
+    - Objective: Create a Jenkins pipeline to execute the Python script from Task 2 on a scheduled basis.
+    - Requirements:
+        1) Set up a Jenkins pipeline to execute the script from Task 2.
+        2) Configure the job to run every 4 hours.
+### Code Source
+    `task-05-jenkins-pipline`
+### Steps Taken
+### How To Run
 ssh -i ~/.ssh/id_rsa cherryrina@10.100.102.10
 
 

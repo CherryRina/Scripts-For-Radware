@@ -1,5 +1,5 @@
 """
-Script checks services abailability and restarts it if the it's down, 
+Script checks services abailability and restarts it if it's down,
 when finished, logs the actions and outcome (success or failure) to a log file.
 """
 
@@ -9,7 +9,7 @@ import logging
 def create_new_file():
     """ creates a new file """
     # TODO: create newfunction that check if file exist
-    with open("system_health_logs.log", 'a') as file:
+    with open("service_availability_logs.log", 'a') as file:
         file.write("System Health Logs\n")
         file.write("===================\n")
 
