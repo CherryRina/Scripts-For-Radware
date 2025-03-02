@@ -9,13 +9,13 @@ pipeline {
 
         stage('Checkout') { // Clones the Python script repository
             steps {
-                git branch: 'master', url: 'https://github.com/CherryRina/Radware-playground/tree/master.git'
+                git branch: 'master', url: 'https://github.com/CherryRina/Radware-playground.git'
             }
         }
 
         stage('Execute Python Script') { // Executes the Python script
             steps {
-                sh 'python3 2-service_managment.py'
+                sh 'cd task-02-service-manager && python3 2-service_managment.py'
             }
         }
 
