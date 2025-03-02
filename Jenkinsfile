@@ -15,7 +15,7 @@ pipeline {
 
         stage('Execute Python Script') { // Executes the Python script
             steps {
-                sh 'ssh -i /root/data/id_rsa -o "StrictHostKeyChecking=no" CherryBomb@localhost "python3 task-02-service-manager/2-service_managment.py"'
+                sh 'ssh -i /var/jenkins_home/id_rsa -o "StrictHostKeyChecking=no" CherryBomb@localhost "python3 task-02-service-manager/2-service_managment.py"'
             }
         }
 
