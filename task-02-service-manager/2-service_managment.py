@@ -8,7 +8,7 @@ import logging
 
 def create_new_file():
     """ creates a new file """
-    # TODO: create newfunction that check if file exist
+    # TODO: create new function that check if file exist
     with open("service_availability_logs.log", 'a') as file:
         file.write("System Health Logs\n")
         file.write("===================\n")
@@ -16,10 +16,10 @@ def create_new_file():
 def setup_logger():
     """ sets the logger for the script """
     # logger
-    logger = logging.getLogger('service_managment_logger')
+    logger = logging.getLogger('service_availability_logs')
     logger.setLevel(logging.INFO)
     # handler
-    file_handler = logging.FileHandler('service_managment_logs.log')
+    file_handler = logging.FileHandler('service_availability_logs.log')
     file_handler.setLevel(logging.INFO)
     # formatter
     formater = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
