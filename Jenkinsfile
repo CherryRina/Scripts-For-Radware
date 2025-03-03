@@ -1,29 +1,27 @@
 pipeline {
-    agent any // Runs the pipeline on any available agent
-
-    triggers { // start the pipeline automaticall
-        cron('H */4 * * *') // This cron expression means "every 4 hours"
-    }
-
-    stages { // define the sequence of tasks in a pipeline
-
-        stage('Checkout') { // Clones the Python script repository
+    agent any
+    stages {
+        stage('Prepare Environment') {
             steps {
-                git branch: 'master', url: 'https://github.com/CherryRina/Radware-playground.git'
+                echo 'Starting the Pipeline...'
             }
         }
-
-        stage('Execute Python Script') { // Executes the Python script
+        stage('Execute Python Script') {
             steps {
-                sh "python3 task-02-service-manager/2-service_managment.py"
+                sh '''
+                echo CherryBomb | sudo -S python3 /home/CherryBomb/Desktop/jenkins-test/2-service_managment.py
+                '''
             }
         }
-
+        stage('Show Logs') {
+            steps {
+                sh 'cat /var/lib/jenkins/workspace/test-locally-python-script/service_availability_logs.log || echo "Log file not found"'
+            }
+        }
     }
-
     post {
         always {
-            echo 'Pipeline run complete.'
+            echo 'Pipeline completed.'
         }
         failure {
             echo 'Pipeline failed!'
