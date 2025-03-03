@@ -24,7 +24,7 @@ Created a working program and split it into separate functions.
     2) If the service is down, restart it.
     3) Log the success or failure of the restart operation.
 ### Code Source
-    `/task-02-service-manager`
+`/task-02-service-manager`
 ### Steps Taken
 Created a working program and split it into separate functions.
 ### How To Run
@@ -72,7 +72,7 @@ Created a working program and split it into separate functions.
 `/task-04-system-log-backup`
 ### Steps Taken
 #### INVENTORY
-1) Created inventory.ini to define the target machines or groups.
+1) Created `inventory.ini` to define the target machines or groups.
 2) Verified my inventory with: 
 `ansible-inventory -i inventory.ini --list`
 3) Pinged the local group in my inventory to test connectivity: 
@@ -81,7 +81,7 @@ Created a working program and split it into separate functions.
 1) Created two playbook files for the deployment tasks.
 2) Ran Ansible with the inventory and playbooks.
 3) Connected to the remote computer via SSH.
-4) Created a bash script named `run-mr.sh` to run them one bu one. 
+4) Created a bash script named `run-mr.sh` to run them one by one. 
 ### How To Run
 - Run bash script named `run-me.sh` from shell
 - The script executes both of Ansible playbooks
@@ -95,11 +95,12 @@ Created a working program and split it into separate functions.
 ### Code Source
 `/task-05-jenkins-pipline`
 ### Steps Taken
-1) Downloaded a Jenkins Docker
-2) Signed into the GUI at `http://localhost:8080`
-3) Written a Jenkins pipeline
-4) Created a new pipeline job inside the GUI
+1) Downloaded Jenkins via Docker — this turned out to be a mistake,
+as Docker containers don't support the systemctl command, and I didn't want to modify the script.
+2) Installed Jenkins directly on my computer and ran the setup again.
+3) Signed into the GUI at `http://localhost:8080`.
+4) Wrote a Jenkins pipeline.
+5) Created a new pipeline job in the GUI.
 ### How To Run
-
-
-
+- Jenkins is responsible for activating the script as was configured inside the pipeline.
+- You can force it to run via the web interface by clicking on the pipeline and selecting "Build Now".
