@@ -1,4 +1,3 @@
-# Tasks of Radware Home Exam 
 ## TASK 1
 ### Description
 - Create a Python script that monitors CPU usage, memory usage, and disk space, with alerting features based on thresholds.
