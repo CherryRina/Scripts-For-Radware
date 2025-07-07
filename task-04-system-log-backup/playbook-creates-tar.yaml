@@ -1,0 +1,31 @@
+---
+- name: System Backup and Remote Transfer
+  hosts: localhost
+  become: true
+  vars_files: 
+  # for unknown reasons must provide full path to vars file
+  - /home/CherryBomb/Documents/Radware-Playground/task-04-create-backup/var-file.yaml
+
+  tasks:
+    - name: Create Backup Directory
+      ansible.builtin.file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: '0755'
+    
+    - name: Archive /var/log directory
+      archive:
+        path: "/var/log"
+        dest: "{{ backup_dir }}/{{ backup_file }}"
+        format: gz
+      # register: backup_result # capture the output
+
+    - name: Check if Backup File Exists
+      stat:
+        path: "{{ backup_dir }}/{{ backup_file }}"
+      register: backup_file
+
+    - name: Fail if Backup File Does Not Exist
+      fail:
+        msg: "Backup file was not created!"
+      when: not backup_file.stat.exists

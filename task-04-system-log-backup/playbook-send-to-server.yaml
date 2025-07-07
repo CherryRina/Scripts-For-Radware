@@ -1,0 +1,16 @@
+---
+- name: System Backup and Remote Transfer
+  hosts: pc_group
+  become: true
+  vars_files:
+  # for unknown reasons must provide full path to vars file
+  - /home/CherryBomb/Documents/Radware-Playground/task-04-create-backup/var-file.yaml
+
+  tasks:
+    - name: Copy tar.gz archive to remote server
+      ansible.builtin.copy:
+        src: "{{ backup_dir }}/{{ backup_file }}"
+        dest: "{{ remote_path }}"
+        mode: '0644'
+
+    # TODO: backup verification
